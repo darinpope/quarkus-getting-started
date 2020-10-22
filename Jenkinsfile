@@ -24,15 +24,15 @@ pipeline {
     }
     stage("waypoint init") {
       steps {
-        echo "init"
-        //sh "waypoint init"
+        sh "waypoint init"
       }
     }
 
     stage("waypoint build") {
       steps {
-        echo "build"
-        //sh "waypoint build"
+        sh """
+          waypoint build -workspace "${env.BRANCH_NAME}"
+        """
       }
     }
 

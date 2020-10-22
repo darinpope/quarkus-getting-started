@@ -38,15 +38,13 @@ pipeline {
 
     stage("waypoint deploy") {
       steps {
-        echo "deploy"
-        //sh "waypoint deploy"
+        sh "waypoint deploy"
       }
     }
 
     stage("waypoint release") {
       steps {
-        echo "release"
-        //sh "waypoint release"
+        sh "waypoint release"
       }
     }
   }

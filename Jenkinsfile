@@ -1,5 +1,9 @@
 pipeline {
   agent { label "linux" }
+  environment {
+    MAVEN_CUSTOM_GOALS="clean package"
+    MAVEN_JAVA_OPTS="-Dquarkus.container-image.build=true"
+  }
   stages {
     stage("pre") {
       steps {

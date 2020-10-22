@@ -24,7 +24,9 @@ pipeline {
     }
     stage("waypoint init") {
       steps {
-        sh "waypoint init"
+        sh """
+          waypoint init -workspace "${env.BRANCH_NAME}"
+        """
       }
     }
 
@@ -38,13 +40,17 @@ pipeline {
 
     stage("waypoint deploy") {
       steps {
-        sh "waypoint deploy"
+        sh """
+          waypoint deploy -workspace "${env.BRANCH_NAME}"
+        """
       }
     }
 
     stage("waypoint release") {
       steps {
-        sh "waypoint release"
+        sh """
+          waypoint release -workspace "${env.BRANCH_NAME}"
+        """
       }
     }
   }

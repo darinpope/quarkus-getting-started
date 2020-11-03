@@ -3,6 +3,10 @@ pipeline {
   environment {
     MAVEN_CUSTOM_GOALS="clean package"
     MAVEN_JAVA_OPTS="-Dquarkus.container-image.build=true"
+    WAYPOINT_SERVER_TOKEN=credentials("waypoint-server-token")
+    WAYPOINT_SERVER_ADDR=credentials("waypoint-server-addr")
+    WAYPOINT_SERVER_TLS=credentials("waypoint-server-tls")
+    WAYPOINT_SERVER_TLS_SKIP_VERIFY=credentials("waypoint-server-tls-skip-verify")
   }
   stages {
     stage("pre") {
